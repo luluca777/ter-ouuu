@@ -1,0 +1,49 @@
+<script>
+// Função para converter temperatura
+function converterTemperatura(temperatura, escalaOriginal) {
+    if (escalaOriginal === "C") {
+        // Converter de Celsius para Fahrenheit
+        return (temperatura * 9/5) + 32;
+    } else if (escalaOriginal === "F") {
+        // Converter de Fahrenheit para Celsius
+        return (temperatura - 32) * 5/9;
+    } else {
+        // Se a escala não for reconhecida
+        return "Escala de temperatura não reconhecida";
+    }
+}
+
+// Função principal
+function principal() {
+    // Solicitar ao usuário que escolha o tipo de conversão
+    var escolha = prompt("Escolha o tipo de conversão:\n1. Celsius para Fahrenheit\n2. Fahrenheit para Celsius");
+
+    // Converter a escolha para um número inteiro
+    escolha = parseInt(escolha);
+
+    // Verificar se a escolha é válida
+    if (escolha !== 1 && escolha !== 2) {
+        alert("Escolha inválida. Por favor, escolha 1 ou 2.");
+        return;
+    }
+
+    // Solicitar temperatura ao usuário
+    var temperatura = parseFloat(prompt("Digite a temperatura:"));
+
+    // Converter e exibir resultado
+    if (escolha === 1) {
+        // Converter de Celsius para Fahrenheit
+        var resultado = converterTemperatura(temperatura, "C");
+        alert(temperatura + "°C é equivalente a " + resultado + "°F.");
+    } else {
+        // Converter de Fahrenheit para Celsius
+        var resultado = converterTemperatura(temperatura, "F");
+        alert(temperatura + "°F é equivalente a " + resultado + "°C.");
+    }
+}
+
+// Chamada da função principal
+principal();
+
+
+</script>
